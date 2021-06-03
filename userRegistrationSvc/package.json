@@ -1,0 +1,22 @@
+{
+  "name": "micro",
+  "version": "1.0.0",
+  "description": "Microservice/kubernetes sandbox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mac-lp3/micro.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mac-lp3/micro/issues"
+  },
+  "homepage": "https://github.com/Mac-lp3/micro#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.3"
+  }
+}

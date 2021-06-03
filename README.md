@@ -7,6 +7,11 @@ Microservice/kubernetes sandbox
 * k8 API gateway
 * React app w/ form
 * Registration service w/ POST (node)
+  * ~~basic node server~~
+  * ~~containerize~~
+  * files, in memory, other?
+  * build GET
+  * build POST
 * Profile service w/ GET (go)
 * protobuf
 
