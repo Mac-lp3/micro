@@ -9,7 +9,7 @@ Microservice/kubernetes sandbox
 * Registration service w/ POST (node)
   * ~~basic node server~~
   * ~~containerize~~
-  * files, in memory, other?
+  * ~~files, in memory, other?~~ memory
   * build GET
   * build POST
 * Profile service w/ GET (go)

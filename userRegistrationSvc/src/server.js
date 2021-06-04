@@ -1,6 +1,7 @@
 'use strict';
 
 const Hapi = require('@hapi/hapi');
+const getUser = require('./routes/users');
 
 const init = async () => {
 
@@ -12,13 +13,7 @@ const init = async () => {
   server.route({
     method: 'GET',
     path: '/users',
-    handler: (request, h) => {
-      console.log('reached')
-      return {
-        id: 1,
-        email: 'putin@kremlin.gov'
-      };
-    }
+    handler: getUser
   });
 
   await server.start();
