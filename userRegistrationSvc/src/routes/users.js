@@ -14,12 +14,39 @@ const userMethods = (function() {
     email:'tony@tiki.gov'
   })
 
-  async function getUser(request, h) {
-    
+  // how to do the responses?
+  // keep it simple/inline?
+  //  would be easiest. 
+  const getUser = async (request, h) => {
+    const mapKey = requests.params.id
+    const usr = MEM_STORE.get(mapKey)
+
+    return usr ? resourceResponse(usr) : resourceResponse({}, 404)
   }
 
-  async function patchUser(request, h) {}
-  async function postUser(request, h) {}
+  const postUser = async (request, h) => {}
+
+  const patchUser = async (request, h) => {}
+
+  const resourceResponse = (resource, code) => {
+
+    return {
+      metadata: {
+        httpCode: code ? code : 200
+      },
+      payload: resource
+    }
+
+  }
+
+  const errorResponse = (error) => {
+    return {
+      metadata: {
+        httpCode: error.httpCode
+      },
+      error: error
+    }
+  }
 
   return {
     getUser: {},
