@@ -4,14 +4,15 @@ Microservice/kubernetes sandbox
 
 ## TODO
 
-* k8 API gateway
+* k8 API gateway/ingress
 * React app w/ form
 * ~~Registration service w/ POST (node)~~
 * Profile service w/ GET (go)
   * ~~user profile data type~~
   * ~~persist events stored? just analyze and update profile?~~
   * golang in mem storage?
-  * golang reading
+  * GET profiles/{id}
+  * listen for events & update profiles
 * multistage builds
 * protobuf catch up
 * protobuf patterns
