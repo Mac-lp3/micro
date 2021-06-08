@@ -13,7 +13,9 @@ Microservice/kubernetes sandbox
   * ~~build GET~~
   * ~~build POST~~
 * Profile service w/ GET (go)
-* protobuf
+* multistage builds
+* protobuf catch up
+* protobuf patterns
 
 ## Scenarios
 
