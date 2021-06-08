@@ -8,11 +8,11 @@ Microservice/kubernetes sandbox
 * React app w/ form
 * ~~Registration service w/ POST (node)~~
 * Profile service w/ GET (go)
-  * ~~user profile data type~~
-  * ~~persist events stored? just analyze and update profile?~~
-  * golang in mem storage?
   * GET profiles/{id}
-  * listen for events & update profiles
+    * mem storage
+  * listen for events
+    * create user event handle
+    * iteraction event handle
 * multistage builds
 * protobuf catch up
 * protobuf patterns

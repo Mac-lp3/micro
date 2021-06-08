@@ -15,7 +15,7 @@ type About struct {
 	ActingLifeStage string
 }
 
-func GetProfile(c *gin.Context) {
+func GetProfile(c *gin.Context, profileMap *map[string]UserProfile) {
 	id := c.Param("id")
 
 	profile := UserProfile{
