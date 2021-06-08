@@ -1,4 +1,4 @@
-module src
+module userProfileSvc
 
 go 1.16
 
