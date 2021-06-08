@@ -6,13 +6,12 @@ Microservice/kubernetes sandbox
 
 * k8 API gateway
 * React app w/ form
-* Registration service w/ POST (node)
-  * ~~basic node server~~
-  * ~~containerize~~
-  * ~~files, in memory, other?~~ memory
-  * ~~build GET~~
-  * ~~build POST~~
+* ~~Registration service w/ POST (node)~~
 * Profile service w/ GET (go)
+  * ~~user profile data type~~
+  * ~~persist events stored? just analyze and update profile?~~
+  * golang in mem storage?
+  * golang reading
 * multistage builds
 * protobuf catch up
 * protobuf patterns
@@ -29,15 +28,15 @@ Microservice/kubernetes sandbox
 
 ## Events
 
-New users, edits to users, etc.
+New users, edits to users, new interactions, etc.
 
 ```json
 {
-    "type": "string",
-    "timestamp": "string",
-    "payload": {
-        "any": "any"
-    }
+  "type": "string",
+  "timestamp": "string",
+  "payload": {
+    "any": "any"
+  }
 }
 ```
 
@@ -49,20 +48,20 @@ They may be sent in batch, API endpoint, or other.
 
 ```json
 {
-    "type": "string",
-    "timestamp": "string",
-    "origin": {
-        "id": "string",
-        "type": "string"
-    },
-    "actor": {
-        "id": "string",
-        "type": "string"
-    },
-    "target": {
-        "id": "string",
-        "type": "string"
-    }
+  "type": "string",
+  "timestamp": "string",
+  "origin": {
+    "id": "string",
+    "type": "string"
+  },
+  "actor": {
+    "id": "string",
+    "type": "string"
+  },
+  "target": {
+    "id": "string",
+    "type": "string"
+  }
 }
 ```
 
@@ -76,4 +75,23 @@ Interactions (the value of `interaction.type`) can be one of the following:
 | VIEW     | User clicked/stopped scrolling on the target            |
 | SHARE    | User emailed/FB/tweeted/etc a link to the target        |
 
+## User Profile
 
+Summary of a user's habbits and preferences.
+
+Updated in real time based on interactions/other events.
+
+Services can use the profile to tailor messages to be more relevant for the user.
+
+```json
+{
+  "userId": "number",
+  "about": {
+    "gender": "string",
+    "spendingClass": "number",
+    "realLifeStage": "string",
+    "actingLifeStage": "string"
+  }
+  "topics": "string[]"
+}
+```
