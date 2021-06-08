@@ -1,3 +1,5 @@
+'use strict';
+
 const userMethods = (function() {
 
   const MEM_STORE = new Map()
@@ -14,19 +16,50 @@ const userMethods = (function() {
     email:'tony@tiki.gov'
   })
 
-  // how to do the responses?
-  // keep it simple/inline?
-  //  would be easiest. 
   const getUser = async (request, h) => {
-    const mapKey = requests.params.id
+    const mapKey = request.params.id
     const usr = MEM_STORE.get(mapKey)
 
-    return usr ? resourceResponse(usr) : resourceResponse({}, 404)
+    return usr ? resourceResponse(usr) : errorResponse({}, 404)
   }
 
-  const postUser = async (request, h) => {}
+  const postUser = async (request, h) => {
 
-  const patchUser = async (request, h) => {}
+    let newUser = false
+
+    // TODO ID gen in a util function
+    for(let i = 2; i < 500; ++i) {
+      if (!MEM_STORE.has(i)) {
+
+        // TODO validation in hapi
+        newUser = {
+          id: i,
+          name: request.payload.name,
+          email: request.payload.email
+        }
+
+        MEM_STORE.set(i, newUser)
+
+        break
+      }
+    }
+
+    return newUser ? resourceResponse(newUser, 201) : errorResponse({}, 503)
+  }
+
+  const patchUser = async (request, h) => {
+    const mapKey = request.params.id
+    const usr = MEM_STORE.get(mapKey)
+
+    if (usr) {
+      usr.name = request.payload.name ? request.payload.name : usr.name
+      usr.email = request.payload.email ? request.payload.email : usr.email
+
+      MEM_STORE.set(mapKey, usr)
+    }
+    
+    return usr ? resourceResponse(usr) : errorResponse({}, 404)
+  }
 
   const resourceResponse = (resource, code) => {
 
@@ -39,21 +72,23 @@ const userMethods = (function() {
 
   }
 
-  const errorResponse = (error) => {
+  const errorResponse = (error, code) => {
     return {
       metadata: {
-        httpCode: error.httpCode
+        httpCode: code ? code : 200
       },
       error: error
     }
   }
 
   return {
-    getUser: {},
-    patchUser: {},
-    postUser: {}
+    getUser: getUser,
+    postUser: postUser,
+    patchUser: patchUser
   }
 
 })()
 
-module.exports = userMethods.getUser
+module.exports.getUser = userMethods.getUser
+module.exports.postUser = userMethods.postUser
+module.exports.patchUser = userMethods.patchUser

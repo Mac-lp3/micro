@@ -10,8 +10,8 @@ Microservice/kubernetes sandbox
   * ~~basic node server~~
   * ~~containerize~~
   * ~~files, in memory, other?~~ memory
-  * build GET
-  * build POST
+  * ~~build GET~~
+  * ~~build POST~~
 * Profile service w/ GET (go)
 * protobuf
 
