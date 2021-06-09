@@ -12,7 +12,34 @@ var syncedProfileMap types.SyncedProfileMap
 
 func main() {
 
+	// dummy data
+	putin := types.UserProfile{
+		UserId: "1",
+		Topics: []string{"crime", "weapons"},
+		About: types.About{
+			Gender:          "M",
+			SpendingClass:   9999,
+			RealLifeStage:   "OA",
+			ActingLifeStage: "OA",
+		},
+	}
+
+	tony := types.UserProfile{
+		UserId: "2",
+		Topics: []string{"booze", "crafting"},
+		About: types.About{
+			Gender:          "M",
+			SpendingClass:   300,
+			RealLifeStage:   "A",
+			ActingLifeStage: "YA",
+		},
+	}
+
 	syncedProfileMap.M = make(map[string]types.UserProfile)
+	syncedProfileMap.Lock()
+	syncedProfileMap.M["1"] = putin
+	syncedProfileMap.M["2"] = tony
+	syncedProfileMap.Unlock()
 
 	go startEventListener()
 	startServer()

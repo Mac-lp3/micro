@@ -9,7 +9,11 @@ Microservice/kubernetes sandbox
 * ~~Registration service w/ POST (node)~~
 * Profile service w/ GET (go)
   * GET profiles/{id}
-    * mem storage
+    * ~~mem storage~~
+    * ~~ok mutex impl i guess~~
+    * ~~method impl~~
+    * ~~dummy data~~
+    * tests
   * listen for events
     * create user event handle
     * iteraction event handle
