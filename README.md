@@ -14,6 +14,9 @@ Microservice/kubernetes sandbox
     * ~~method impl~~
     * ~~dummy data~~
     * tests
+  * ~~event queue impl (nats)~~
+    * integrate
+    * dockerize
   * listen for events
     * create user event handle
     * iteraction event handle
