@@ -6,6 +6,7 @@ import (
 	types "userProfileSvc/src/types"
 
 	"github.com/gin-gonic/gin"
+	"github.com/nats-io/nats.go"
 )
 
 var syncedProfileMap types.SyncedProfileMap
@@ -61,5 +62,15 @@ func startServer() {
 }
 
 func startEventListener() {
+
 	fmt.Println("listening for events")
+
+	nc, _ := nats.Connect(nats.DefaultURL, nats.Name("NATS micro connection"))
+
+	nc.Subscribe("events", func(m *nats.Msg) {
+		fmt.Printf("Received a message: %s\n", string(m.Data))
+	})
+
+	// call the event processor
+	// save the new profile
 }

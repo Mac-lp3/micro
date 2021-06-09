@@ -8,18 +8,15 @@ Microservice/kubernetes sandbox
 * React app w/ form
 * ~~Registration service w/ POST (node)~~
 * Profile service w/ GET (go)
-  * GET profiles/{id}
-    * ~~mem storage~~
-    * ~~ok mutex impl i guess~~
-    * ~~method impl~~
-    * ~~dummy data~~
-    * tests
+  * ~~GET profiles/{id}~~
   * ~~event queue impl (nats)~~
-    * integrate
-    * dockerize
   * listen for events
+    * ~~docker server/go client~~
+    * ~~listen & log~~
+    * ~~post messages~~
     * create user event handle
     * iteraction event handle
+  * tests
 * multistage builds
 * protobuf catch up
 * protobuf patterns
