@@ -3,7 +3,7 @@ import EventControls from './events/eventControls'
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <EventControls />
     </div>
   );
