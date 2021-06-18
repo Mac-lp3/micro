@@ -18,7 +18,14 @@ Microservice/kubernetes sandbox
   * create event interface in dashboard & POST call
 
 ### raw list
+* shared envs
+  * port numbers
+  * endpoints/locations
 * k8 API gateway/ingress
+* containerized ML model
+  * pattern for training
+  * pattern for persisting
+  * pattern for serving
 * React app w/ form
   * table for users
   * GET users call
