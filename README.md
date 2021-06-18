@@ -4,8 +4,29 @@ Microservice/kubernetes sandbox
 
 ## TODO
 
+### features
+* eventsSvc (koa/generators)
+  * GET event(s)
+  * POST event
+  * DELETE event
+* dashboard <-> apis(ingress)
+  * pattern for dummy data vs integrated mode
+  * CORS issues
+* basic event streaming
+  * echo event listeners (profileSvc)
+  * POST events endpoint (mock with new "api gateway" server)
+  * create event interface in dashboard & POST call
+
+### raw list
 * k8 API gateway/ingress
 * React app w/ form
+  * table for users
+  * GET users call
+  * POST user endpoint
+  * table for profiles
+  * GET profiles call
+  * GET events call
+  * POST event endpoint
 * ~~Registration service w/ POST (node)~~
 * Profile service w/ GET (go)
   * ~~GET profiles/{id}~~
@@ -16,6 +37,7 @@ Microservice/kubernetes sandbox
     * ~~post messages~~
     * create user event handle
     * iteraction event handle
+    * plan for updateProfile(event) 
   * tests
 * multistage builds
 * protobuf catch up
