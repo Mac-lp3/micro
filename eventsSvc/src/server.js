@@ -1,11 +1,28 @@
 const Koa = require('koa')
 const Router = require('@koa/router')
+const { createEvent, deleteEvent, getEvents } = require('./routes/events')
+
+const BASE_URL = '/api/v1'
 
 const app = new Koa()
-const rt = new Router()
+const rt = new Router({
+    prefix: `${BASE_URL}`
+})
 
 rt.get('/', (ctx, next) => {
     ctx.body = 'Hello Koa'
+})
+
+rt.get('/events', (ctx, next) => {
+    ctx.body = 'some events'
+})
+
+rt.post('/events', (ctx, next) => {
+    ctx.body = 'some new events'
+})
+
+rt.delete('/events/:eid', (ctx, next) => {
+    ctx.body = `delete event ${ctx.params.eid}`
 })
 
 app.use(rt.routes())
