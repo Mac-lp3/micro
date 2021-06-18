@@ -14,6 +14,10 @@ rt.get('/', (ctx, next) => {
 })
 
 rt.get('/events', (ctx, next) => {
+    const lim = ctx.params.limit ? ctx.params.limit : undefined
+    const oset = ctx.params.offset ? ctx.params.offset : undefined
+    const eventObjects = await getEvents(lim, oset)
+
     ctx.body = 'some events'
 })
 
