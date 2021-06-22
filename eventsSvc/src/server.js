@@ -13,12 +13,15 @@ rt.get('/', (ctx, next) => {
     ctx.body = 'Hello Koa'
 })
 
-rt.get('/events', (ctx, next) => {
+rt.get('/events', async (ctx, next) => {
     const lim = ctx.params.limit ? ctx.params.limit : undefined
     const oset = ctx.params.offset ? ctx.params.offset : undefined
-    const eventObjects = await getEvents(lim, oset)
+    const eventResponse = await getEvents(lim, oset)
 
-    ctx.body = 'some events'
+    ctx.body = {
+        metadata: eventResponse.metadata,
+        payload: eventResponse.payload
+    }
 })
 
 rt.post('/events', (ctx, next) => {

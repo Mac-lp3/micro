@@ -67,7 +67,6 @@ New users, edits to users, new interactions, etc.
 ```json
 {
   "type": "string",
-  "timestamp": "string",
   "payload": {
     "any": "any"
   }

@@ -5,13 +5,27 @@ const eventRoutes = (function() {
     const DEFAULT_OFFSET = 0
 
     async function getEvents(limit, offset) {
+
+        let events = []
         try {
+
+            events.push({
+                type: 'INTERACTION',
+                payload: {
+                  type: 'VIEW',
+                  timestamp: new Date(),
+                  origin: {
+                      id: 'abcd1234',
+                      type: 'mobile app'
+                  }
+                }
+            })
 
         } catch (any) {
             return buildErrorResponse(any)
         }
 
-        return buildResourceResponse({}, {})
+        return buildResourceResponse(events, {})
     }
     
     async function createEvent(eid) {
