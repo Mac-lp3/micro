@@ -4,14 +4,14 @@ const userMethods = (function() {
 
   const MEM_STORE = new Map()
 
-  MEM_STORE.set(1, {
-    id: 1,
+  MEM_STORE.set('1', {
+    id: '1',
     name: 'Emperor Putin',
     email:'putin@kgb.org'
   })
 
-  MEM_STORE.set(2, {
-    id: 2,
+  MEM_STORE.set('2', {
+    id: '2',
     name: 'Tiki Tony',
     email:'tony@tiki.gov'
   })
@@ -29,16 +29,16 @@ const userMethods = (function() {
 
     // TODO ID gen in a util function
     for(let i = 2; i < 500; ++i) {
-      if (!MEM_STORE.has(i)) {
+      if (!MEM_STORE.has(`${i}`)) {
 
         // TODO validation in hapi
         newUser = {
-          id: i,
+          id: `${i}`,
           name: request.payload.name,
           email: request.payload.email
         }
 
-        MEM_STORE.set(i, newUser)
+        MEM_STORE.set(`${i}`, newUser)
 
         break
       }
