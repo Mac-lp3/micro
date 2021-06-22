@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  event-bus:
+    image: "nats"
+    ports:
+      - "4222:4222"
+      - "6222:6222"
+      - "8222:8222"
+  events-svc:
+    image: "micro/events-svc"
+    ports:
+      - "3030:3030"
+  user-reg-svc:
+    image: "micro/usr-reg-svc"
+    ports:
+      - "3000:3000"
+  user-prof-svc:
+    image: "micro/usr-prof-svc"
+    ports:
+      - "8080:8080"
