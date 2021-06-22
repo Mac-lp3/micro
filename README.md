@@ -5,10 +5,13 @@ Microservice/kubernetes sandbox
 ## TODO
 
 ### features
+* dockerize profile svc
 * eventsSvc (koa/generators)
-  * GET event(s)
-  * POST event
-  * DELETE event
+  * ~~basic GET event~~
+  * ~~basic POST event~~
+  * ~~basic DELETE event~~
+  * nats dao/integration
+    * simple connect, create, and get on server start
 * dashboard <-> apis(ingress)
   * pattern for dummy data vs integrated mode
   * CORS issues
@@ -28,12 +31,13 @@ Microservice/kubernetes sandbox
   * pattern for serving
 * React app w/ form
   * table for users
-  * GET users call
-  * POST user endpoint
+    * GET users call
+    * POST user endpoint
   * table for profiles
-  * GET profiles call
-  * GET events call
-  * POST event endpoint
+    * GET profiles call
+  * table for events
+    * GET events call
+    * POST event endpoint
 * ~~Registration service w/ POST (node)~~
 * Profile service w/ GET (go)
   * ~~GET profiles/{id}~~
@@ -46,6 +50,7 @@ Microservice/kubernetes sandbox
     * iteraction event handle
     * plan for updateProfile(event) 
   * tests
+* events/interactions should have a URL to the resource
 * multistage builds
 * protobuf catch up
 * protobuf patterns
