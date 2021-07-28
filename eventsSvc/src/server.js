@@ -3,6 +3,7 @@
  * 
  * An interactions service would better, but this allows all events to be displayed on a UI.
  */
+'use strict'
 
 const Koa = require('koa')
 const Router = require('@koa/router')
