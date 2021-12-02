@@ -2,6 +2,12 @@
 
 Microservice/kubernetes sandbox
 
+## The services
+
+### Dashboard
+
+React app for admin control.
+
 ## TODO
 
 ### features
@@ -64,6 +70,12 @@ Microservice/kubernetes sandbox
 * Reg service generates a user registration event
 * UserProfileService hears event & creates a profile of the user
 * EmailService hears event & sends welcome message
+* The event is stored in the warehouse
+
+**User activity**
+* The app (or admin dashboard) POSTs an event to the event bus (api gw first?)
+* User profile service hears the event and updates the user's profile accordingly
+* The event is stored in the warehouse
 
 ## Events
 
